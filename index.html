@@ -126,10 +126,20 @@
         class="lg:flex items-center gap-10 w-[90%] m-auto bg-white shadow-xl"
       >
         <img
-          src="./src/assets/img/hero-image.webp"
-          alt="taller-camiones"
-          class="lg:w-[50%] lg:h-[50%]"
+          class="w-full h-auto object-cover aspect-[4/3] lg:aspect-auto lg:w-1/2 lg:h-full"
+          src="./src/assets/img/hero-image-1600.webp"
+          srcset="
+            ./src/assets/img/hero-image-600.webp   600w,
+            ./src/assets/img/hero-image-900.webp   900w,
+            ./src/assets/img/hero-image-1200.webp 1200w,
+            ./src/assets/img/hero-image-1600.webp 1600w
+          "
+          sizes="(min-width: 1024px) 50vw, 100vw"
+          alt="Taller de tractocamiones con sistema de lubricación MILAS"
+          width="1600"
+          height="1200"
           loading="eager"
+          fetchpriority="high"
         />
 
         <div id="hero-description" class="flex flex-col gap-6 p-4">
