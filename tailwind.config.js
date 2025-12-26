@@ -1,8 +1,12 @@
 module.exports = {
-  // OJO AQUÍ: Debe apuntar a la carpeta src y a cualquier archivo html o js dentro
-  content: ["./src/**/*.{html,js}"], 
+  content: ["./src/**/*.{html,js}", "./*.html"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        inter: ['Inter', 'system-ui', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }
