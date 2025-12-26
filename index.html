@@ -29,13 +29,23 @@
 
         <nav class="flex items-center md:w-full">
           <ul
-            class="md:flex justify-around items-center hidden text-slate-800 font-poppins font-medium"
+            class="md:flex justify-around items-center hidden text-slate-800 font-poppins font-semibold w-full"
           >
-            <li><a href="#">Inicio</a></li>
-            <li><a href="#">Nosotros</a></li>
-            <li><a href="#">Productos</a></li>
-            <li><a href="#">Servicios</a></li>
-            <li><a href="#">Galeria</a></li>
+            <li>
+              <a href="#" class="hover:underline">Inicio</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Nosotros</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Productos</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Servicios</a>
+            </li>
+            <li>
+              <a href="#" class="hover:underline">Galeria</a>
+            </li>
           </ul>
           <div
             class="ml-auto hover:border hover:bg-slate-200 rounded-full p-1 md:hidden"
@@ -92,6 +102,33 @@
         </ul>
       </div>
     </header>
+
+    <!-- hero section -->
+    <main class="w-full max-w-full mt-4">
+      <!-- hero -->
+      <section id="hero" class="md:flex items-center gap-10">
+        <img
+          src="./src/assets/img/hero-image.jpg"
+          alt="taller-camiones"
+          class="md:w-[50%] md:h-[50%]"
+        />
+
+        <div id="hero-description" class="flex flex-col gap-6 p-4">
+          <h1
+            class="font-poppins font-semibold text-3xl text-center text-slate-800 italic"
+          >
+            Instalamos sistemas completos de lubricación para talleres de
+            tractocamiones
+          </h1>
+
+          <a
+            href="#"
+            class="w-[50%] md:w-[80%] m-auto font-poppins font-medium border rounded-2xl bg-yellow-600 text-center text-xl text-white p-5"
+            >Equipa tu taller hoy</a
+          >
+        </div>
+      </section>
+    </main>
   </body>
   <script src="./src/main.js"></script>
 </html>
