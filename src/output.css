@@ -781,7 +781,7 @@ video {
 
   /* Ajusta el nombre del archivo si se llama diferente, ej: Poppins-Bold.ttf */
 
-  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf") format("truetype");
+  src: url("./assets/font/Poppins/Poppins-Bold.ttf") format("truetype");
 
   font-weight: 700;
 
@@ -795,9 +795,9 @@ video {
 @font-face {
   font-family: "Poppins";
 
-  src: url("./assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
+  src: url("./assets/font/Poppins/Poppins-SemiBold.ttf") format("truetype");
 
-  font-weight: 400;
+  font-weight: 600;
 
   font-style: normal;
 
@@ -809,7 +809,7 @@ video {
 @font-face {
   font-family: "Inter";
 
-  src: url("./assets/fonts/Inter/static/Inter_28pt-Regular.ttf")
+  src: url("./assets/font/Inter/static/Inter_28pt-Regular.ttf")
     format("truetype");
 
   font-weight: 400;
