@@ -5,6 +5,7 @@ const menuResp= document.getElementById('menu-resp');
 
 hambMenu.addEventListener('click', function(){
 
-menuResp.classList.toggle('hidden');
+ menuResp.classList.toggle('opacity-0');
+  menuResp.classList.toggle('translate-x-full');
 
 });
