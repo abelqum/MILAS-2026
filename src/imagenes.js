@@ -4,24 +4,27 @@ const productos = [
         id: 1,
         nombre: "Bomba Neumática 3:1",
         marca: "SAMSON",
-        categoria: "Aceite",
-        descripcion: "Ideal para distribución de aceite en distancias medias. Alta eficiencia y durabilidad.",
+        categoria: "Aceite",   // Fluido
+        tipo: "Bombas",        // Nuevo: Tipo de equipo
+        descripcion: "Ideal para distribución de aceite en distancias medias. Alta eficiencia.",
         imagen: "./src/assets/img/SAMSON/bomba.png"
     },
     {
         id: 2,
         nombre: "Carrete Retráctil Heavy Duty",
         marca: "WINTEK",
-        categoria: "Aire", // Cambié a 'Aire' o 'Carretes' según prefieras filtrar
-        descripcion: "Manguera de 15m reforzada. Brazo doble para máxima estabilidad en montaje de techo.",
+        categoria: "Aire",
+        tipo: "Carretes",
+        descripcion: "Manguera de 15m reforzada. Brazo doble para máxima estabilidad.",
         imagen: "./src/assets/img/WINTEK/carrete.jpg"
     },
     {
         id: 3,
         nombre: "Pistola Digital Cuenta Litros",
-        marca: "WINTEK", // Ojo: en tu html anterior decía Wintek la imagen, ajusta la marca real
-        categoria: "Medición",
-        descripcion: "Precisión +/- 0.5%. Pantalla digital para control exacto de despacho de aceite.",
+        marca: "WINTEK",
+        categoria: "Aceite",
+        tipo: "Pistolas",
+        descripcion: "Precisión +/- 0.5%. Pantalla digital para control exacto.",
         imagen: "./src/assets/img/WINTEK/pistola.png"
     },
     {
@@ -29,7 +32,8 @@ const productos = [
         nombre: "Kit Portátil para Urea/AdBlue",
         marca: "PIUSI",
         categoria: "Urea",
-        descripcion: "Bomba de diafragma especial para DEF. Incluye manguera y pistola manual.",
+        tipo: "Bombas", // Es un kit, pero su función principal es bombear
+        descripcion: "Bomba de diafragma especial para DEF. Incluye manguera y pistola.",
         imagen: "./src/assets/img/piusi/p1.png"
     },
     {
@@ -37,17 +41,19 @@ const productos = [
         nombre: "Bomba de Grasa 50:1",
         marca: "SAMSON",
         categoria: "Grasa",
-        descripcion: "Alta presión para tambos de 200L. Perfecta para talleres de servicio pesado.",
-        imagen: "./src/assets/img/bomba-aceite.webp" // Usa una imagen genérica si no tienes la específica aún
+        tipo: "Bombas",
+        descripcion: "Alta presión para tambos de 200L. Perfecta para servicio pesado.",
+        imagen: "./src/assets/img/bomba-aceite.webp" 
     },
     {
         id: 6,
         nombre: "Enrollador de Aire Abierto",
         marca: "WINTEK",
         categoria: "Aire",
-        descripcion: "Acero al carbono con pintura electrostática. Resistente a la corrosión.",
+        tipo: "Carretes",
+        descripcion: "Acero al carbono con pintura electrostática.",
         imagen: "./src/assets/img/carrete.webp"
-    },
+    }
 ];
 
 // --- REFERENCIAS AL DOM ---
@@ -55,23 +61,19 @@ const contenedor = document.getElementById('contenedor-productos');
 const mensajeSinResultados = document.getElementById('mensaje-sin-resultados');
 const botonesFiltro = document.querySelectorAll('.btn-filtro');
 
-// --- FUNCIÓN PARA RENDERIZAR ---
-// Recibe un arreglo de productos (puede ser el completo o uno filtrado)
+// --- RENDERIZAR ---
 function renderizarProductos(listaProductos) {
-    // 1. Limpiar contenedor
     contenedor.innerHTML = '';
 
-    // 2. Validar si hay resultados
     if (listaProductos.length === 0) {
         mensajeSinResultados.classList.remove('hidden');
-        return; // Salimos de la función
+        return;
     } else {
         mensajeSinResultados.classList.add('hidden');
     }
 
-    // 3. Crear HTML por cada producto
     listaProductos.forEach(producto => {
-        // Estilos dinámicos para el tag de marca
+        // Colores de marca
         let brandColor = 'bg-slate-200 text-slate-600';
         if(producto.marca === 'PIUSI') brandColor = 'bg-red-100 text-red-700 border border-red-200';
         if(producto.marca === 'SAMSON') brandColor = 'bg-blue-100 text-blue-700 border border-blue-200';
@@ -92,7 +94,10 @@ function renderizarProductos(listaProductos) {
                     >
                 </div>
                 <div class="p-6 flex flex-col flex-grow">
-                    <span class="text-xs text-yellow-600 font-bold uppercase tracking-wider mb-1">${producto.categoria}</span>
+                    <div class="flex gap-2 mb-1">
+                        <span class="text-xs text-yellow-600 font-bold uppercase tracking-wider">${producto.categoria}</span>
+                        <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">• ${producto.tipo}</span>
+                    </div>
                     <h3 class="font-poppins font-bold text-xl text-slate-800 mb-3 leading-tight">${producto.nombre}</h3>
                     <p class="text-slate-500 text-sm mb-6 flex-grow leading-relaxed">
                         ${producto.descripcion}
@@ -108,30 +113,31 @@ function renderizarProductos(listaProductos) {
     });
 }
 
-// --- LÓGICA DE FILTRADO ---
+// --- FILTRADO NUEVO ---
 function filtrarProductos(filtro) {
-    // 1. Quitar clase activa de todos los botones
+    // UI: Botones
     botonesFiltro.forEach(btn => {
-        btn.classList.remove('bg-slate-800', 'text-white', 'shadow-md'); // Estilos activo
-        btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200'); // Estilos inactivo
+        btn.classList.remove('bg-slate-800', 'text-white', 'shadow-md'); 
+        btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200'); 
     });
 
-    // 2. Encontrar el botón clickeado y activarlo visualmente
     const botonActivo = document.querySelector(`button[data-filter="${filtro}"]`);
     if(botonActivo) {
         botonActivo.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
         botonActivo.classList.add('bg-slate-800', 'text-white', 'shadow-md');
     }
 
-    // 3. Filtrar el arreglo
+    // Lógica Lógica
     if (filtro === 'all') {
         renderizarProductos(productos);
     } else {
-        const [tipo, valor] = filtro.split(':'); // Separa "brand:SAMSON" en "brand" y "SAMSON"
+        // Separamos "tipo:Bombas" -> clave="tipo", valor="Bombas"
+        const [clave, valor] = filtro.split(':'); 
         
         const productosFiltrados = productos.filter(p => {
-            if (tipo === 'brand') return p.marca === valor;
-            if (tipo === 'cat') return p.categoria === valor;
+            if (clave === 'brand') return p.marca === valor;
+            if (clave === 'cat') return p.categoria === valor; // Filtra por fluido (Aceite/Grasa/Urea)
+            if (clave === 'tipo') return p.tipo === valor;     // Filtra por equipo (Bomba/Carrete)
             return false;
         });
         
@@ -139,13 +145,11 @@ function filtrarProductos(filtro) {
     }
 }
 
-// --- EVENT LISTENERS ---
-// Al cargar la página
+// --- INIT ---
 document.addEventListener('DOMContentLoaded', () => {
-    renderizarProductos(productos); // Mostrar todo al inicio
+    renderizarProductos(productos);
 });
 
-// Al hacer clic en los botones
 botonesFiltro.forEach(btn => {
     btn.addEventListener('click', (e) => {
         const filtro = e.target.getAttribute('data-filter');
