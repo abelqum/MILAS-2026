@@ -18,12 +18,14 @@
   <body class="bg-slate-100">
     <header id="header" class="w-full bg-white shadow-md">
       <div class="w-[90%] flex justify-between gap-11 items-center m-auto">
-        <img
-          src="./src/assets/img/logo-milas-sin-fondo.webp"
-          alt="logo-milas"
-          class="w-[70px] h-[70px] md:w-[130px] md:h-[130px]"
-          loading="eager"
-        />
+        <a href="index.html" class="block">
+          <img
+            src="./src/assets/img/logo-milas-sin-fondo.webp"
+            alt="logo-milas"
+            class="w-[70px] h-[70px] md:w-[130px] md:h-[130px] hover:scale-105 transition-transform duration-200"
+            loading="eager"
+          />
+        </a>
 
         <nav class="flex items-center md:w-full">
           <ul
@@ -233,113 +235,10 @@
         </div>
 
         <div
+          id="Principales"
           class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 scroll-smooth"
           style="scrollbar-width: thin"
-        >
-          <article
-            class="min-w-[85%] md:min-w-[300px] snap-center bg-white p-6 rounded-xl shadow-md border border-slate-100"
-          >
-            <div
-              class="h-40 bg-slate-50 flex items-center justify-center rounded-lg mb-4"
-            >
-              <img
-                src="./src/assets/img/SAMSON/bomba.png"
-                alt="Bomba Neumática"
-                class="h-full object-contain mix-blend-multiply"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="font-poppins font-bold text-lg text-slate-800">
-              Bombas Neumáticas
-            </h3>
-            <p class="text-sm text-slate-500 mt-1 mb-4">
-              Ratios 3:1 y 5:1 para alto flujo.
-            </p>
-            <a
-              href="contacto.html"
-              class="block w-full py-2 text-center border border-slate-300 rounded text-slate-700 font-medium hover:bg-slate-800 hover:text-white transition-colors"
-              >Cotizar</a
-            >
-          </article>
-
-          <article
-            class="min-w-[85%] md:min-w-[300px] snap-center bg-white p-6 rounded-xl shadow-md border border-slate-100"
-          >
-            <div
-              class="h-40 bg-slate-50 flex items-center justify-center rounded-lg mb-4"
-            >
-              <img
-                src="./src/assets/img/WINTEK/carrete.jpg"
-                alt="Carretes"
-                class="h-full object-contain mix-blend-multiply"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="font-poppins font-bold text-lg text-slate-800">
-              Carretes Retráctiles
-            </h3>
-            <p class="text-sm text-slate-500 mt-1 mb-4">
-              Aire, agua, grasa y aceite.
-            </p>
-            <a
-              href="contacto.html"
-              class="block w-full py-2 text-center border border-slate-300 rounded text-slate-700 font-medium hover:bg-slate-800 hover:text-white transition-colors"
-              >Cotizar</a
-            >
-          </article>
-
-          <article
-            class="min-w-[85%] md:min-w-[300px] snap-center bg-white p-6 rounded-xl shadow-md border border-slate-100"
-          >
-            <div
-              class="h-40 bg-slate-50 flex items-center justify-center rounded-lg mb-4"
-            >
-              <img
-                src="./src/assets/img/WINTEK/pistola.png"
-                alt="Pistolas"
-                class="h-full object-contain mix-blend-multiply"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="font-poppins font-bold text-lg text-slate-800">
-              Pistolas Digitales
-            </h3>
-            <p class="text-sm text-slate-500 mt-1 mb-4">
-              Control preciso con medidor.
-            </p>
-            <a
-              href="contacto.html"
-              class="block w-full py-2 text-center border border-slate-300 rounded text-slate-700 font-medium hover:bg-slate-800 hover:text-white transition-colors"
-              >Cotizar</a
-            >
-          </article>
-
-          <article
-            class="min-w-[85%] md:min-w-[300px] snap-center bg-white p-6 rounded-xl shadow-md border border-slate-100"
-          >
-            <div
-              class="h-40 bg-slate-50 flex items-center justify-center rounded-lg mb-4"
-            >
-              <img
-                src="./src/assets/img/piusi/p1.png"
-                alt="Urea"
-                class="h-full object-contain mix-blend-multiply"
-                loading="lazy"
-              />
-            </div>
-            <h3 class="font-poppins font-bold text-lg text-slate-800">
-              Kits AdBlue / Urea
-            </h3>
-            <p class="text-sm text-slate-500 mt-1 mb-4">
-              Equipos portátiles y para tambo.
-            </p>
-            <a
-              href="contacto.html"
-              class="block w-full py-2 text-center border border-slate-300 rounded text-slate-700 font-medium hover:bg-slate-800 hover:text-white transition-colors"
-              >Cotizar</a
-            >
-          </article>
-        </div>
+        ></div>
         <div class="md:hidden text-center mt-4">
           <a
             href="productos.html"
@@ -622,5 +521,6 @@
     </footer>
 
     <script src="./src/main.js"></script>
+    <script src="./src/principales.js"></script>
   </body>
 </html>

@@ -1510,6 +1510,12 @@ video {
   transition-duration: 150ms;
 }
 
+.transition-shadow {
+  transition-property: box-shadow;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
 .duration-200 {
   transition-duration: 200ms;
 }
@@ -1754,6 +1760,10 @@ video {
 
   .md\:min-w-\[300px\] {
     min-width: 300px;
+  }
+
+  .md\:min-w-\[350px\] {
+    min-width: 350px;
   }
 
   .md\:grid-cols-2 {
