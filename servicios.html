@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <title>Productos | MILAS</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./src/output.css" />
+    <link
+      rel="shortcut icon"
+      href="./src/assets/img/engrane-sin-fondo.ico"
+      type="image/x-icon"
+    />
+    <meta
+      name="description"
+      content="Catálogo de productos MILAS: Bombas, carretes, pistolas y equipos de lubricación de las marcas PIUSI, SAMSON y WINTEK."
+    />
+  </head>
+  <body class="bg-slate-100 font-inter flex flex-col min-h-screen">
+    <header id="header" class="w-full bg-white shadow-md">
+      <div class="w-[90%] flex justify-between gap-11 items-center m-auto">
+        <img
+          src="./src/assets/img/logo-milas-sin-fondo.webp"
+          alt="logo-milas"
+          class="w-[70px] h-[70px] md:w-[130px] md:h-[130px]"
+          loading="eager"
+        />
+
+        <nav class="flex items-center md:w-full">
+          <ul
+            class="md:flex justify-around items-center hidden text-slate-800 font-poppins font-semibold w-full"
+          >
+            <li>
+              <a
+                href="index.html"
+                class="hover:scale-100 hover:text-yellow-600 transition-all duration-200"
+                >Inicio</a
+              >
+            </li>
+            <li>
+              <a
+                href="nosotros.html"
+                class="hover:scale-100 hover:text-yellow-600 transition-all duration-200"
+                >Nosotros</a
+              >
+            </li>
+            <li>
+              <a
+                href="productos.html"
+                class="hover:scale-100 hover:text-yellow-600 transition-all duration-200"
+                >Productos</a
+              >
+            </li>
+            <li>
+              <a
+                href="servicios.html"
+                class="hover:scale-100 hover:text-yellow-600 transition-all duration-200"
+                >Servicios</a
+              >
+            </li>
+            <li>
+              <a
+                href="contacto.html"
+                class="hover:scale-100 hover:text-yellow-600 transition-all duration-200"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+          <div
+            class="ml-auto hover:text-yellow-600 hover:bg-slate-200 rounded-full p-1 md:hidden"
+            id="hamb"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              id="iconHamb"
+            >
+              <path d="M4 6l16 0" />
+              <path d="M4 12l16 0" />
+              <path d="M4 18l16 0" />
+            </svg>
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#000000"
+              stroke-width="1"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="hidden"
+              id="iconClose"
+            >
+              <path d="M18 6l-12 12" />
+              <path d="M6 6l12 12" />
+            </svg>
+          </div>
+        </nav>
+      </div>
+      <div
+        class="w-[85%] h-screen fixed top-30 right-0 p-10 bg-white shadow-md opacity-0 translate-x-full transition-all duration-500 ease-out md:hidden"
+        id="menu-resp"
+      >
+        <ul
+          class="w-full text-slate-800 flex flex-col items-center gap-8 py-10 font-poppins font-medium"
+        >
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="productos.html">Productos</a></li>
+          <li>
+            <a href="servicios.html" class="text-yellow-600 font-bold"
+              >Servicios</a
+            >
+          </li>
+          <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="w-full max-w-full mt-16 mb-20 flex-grow">
+      <section class="w-[90%] m-auto mb-12 text-center pt-10">
+        <span
+          class="text-yellow-600 font-bold tracking-widest uppercase text-sm"
+          >Especialistas en Taller</span
+        >
+        <h1 class="font-poppins font-bold text-4xl text-slate-900 mt-2">
+          Instalación y Equipamiento
+        </h1>
+        <p class="text-slate-500 mt-4 max-w-2xl m-auto text-lg">
+          Garantizamos el funcionamiento óptimo de tu taller con instalaciones
+          certificadas y equipos de alto rendimiento.
+        </p>
+      </section>
+
+      <section class="w-[90%] m-auto mb-10">
+        <div class="grid md:grid-cols-2 gap-10">
+          <div
+            class="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-500 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full"
+          >
+            <div class="p-8 flex flex-col h-full">
+              <div
+                class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mb-6 text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-poppins font-bold text-2xl text-slate-800 mb-3">
+                Instalación de Equipos
+              </h3>
+              <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                Montaje profesional de equipos de lubricación. Aseguramos la
+                correcta fijación y calibración para uso rudo.
+              </p>
+
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800"
+                      >Bombas Neumáticas</strong
+                    >
+                    Para aceite y grasa en tambos o murales.
+                  </div>
+                </li>
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800"
+                      >Carretes Retráctiles</strong
+                    >
+                    Fijación segura en techos y estructuras.
+                  </div>
+                </li>
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800"
+                      >Pistolas Digitales</strong
+                    >
+                    Conexión y calibración de cuenta litros.
+                  </div>
+                </li>
+              </ul>
+
+              <div class="mt-auto">
+                <a
+                  href="contacto.html"
+                  class="block w-full py-3 text-center border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                >
+                  Cotizar Equipamiento
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-500 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full"
+          >
+            <div class="p-8 flex flex-col h-full">
+              <div
+                class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mb-6 text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-8 w-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                </svg>
+              </div>
+
+              <h3 class="font-poppins font-bold text-2xl text-slate-800 mb-3">
+                Tuberías y Líneas de Aire
+              </h3>
+              <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                Diseño y tendido de la red de distribución para llevar fluidos y
+                aire comprimido a cada bahía de trabajo.
+              </p>
+
+              <ul class="space-y-4 mb-8">
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800"
+                      >Redes de Fluido</strong
+                    >
+                    Tubería para distribución centralizada de aceite y
+                    recuperación.
+                  </div>
+                </li>
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800">Líneas de Aire</strong>
+                    Alimentación neumática eficiente para herramientas y bombas.
+                  </div>
+                </li>
+                <li class="flex items-start text-slate-600 text-sm">
+                  <svg
+                    class="w-5 h-5 text-yellow-500 mr-2 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    ></path>
+                  </svg>
+                  <div>
+                    <strong class="block text-slate-800">Ingeniería</strong>
+                    Cálculo de diámetros y presiones adecuadas.
+                  </div>
+                </li>
+              </ul>
+
+              <div class="mt-auto">
+                <a
+                  href="contacto.html"
+                  class="block w-full py-3 text-center border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                >
+                  Cotizar Instalación
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="w-[90%] m-auto mb-20">
+        <h3 class="text-slate-500 font-bold mb-6 text-center text-lg">
+          Galería de Proyectos Recientes
+        </h3>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div class="h-48 rounded-lg overflow-hidden shadow-md group">
+            <img
+              src="./src/assets/img/hero-image-600.webp"
+              alt="Instalación 1"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="h-48 rounded-lg overflow-hidden shadow-md group">
+            <img
+              src="./src/assets/img/hero-image-900.webp"
+              alt="Instalación 2"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="h-48 rounded-lg overflow-hidden shadow-md group">
+            <img
+              src="./src/assets/img/hero-image-1200.webp"
+              alt="Instalación 3"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+          <div class="h-48 rounded-lg overflow-hidden shadow-md group">
+            <img
+              src="./src/assets/img/hero-image-1600.webp"
+              alt="Instalación 4"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section class="py-10">
+        <div
+          class="w-[90%] max-w-4xl m-auto text-center bg-yellow-50 border border-yellow-100 p-8 md:p-12 rounded-3xl shadow-sm"
+        >
+          <h2
+            class="font-poppins font-bold text-2xl md:text-3xl text-slate-900 mb-4"
+          >
+            ¿Tienes un proyecto en puerta?
+          </h2>
+          <p class="text-slate-600 mb-8 text-lg">
+            Agenda una visita técnica y recibe una propuesta personalizada para
+            tu taller.
+          </p>
+          <a
+            href="contacto.html"
+            class="inline-block bg-yellow-600 text-white font-bold px-8 py-4 rounded-xl hover:bg-yellow-700 transition-colors shadow-lg"
+          >
+            Agendar Visita Técnica
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer
+      class="bg-slate-900 text-slate-400 py-10 border-t border-slate-800 mt-auto"
+    >
+      <div
+        class="w-[90%] m-auto flex flex-col md:flex-row justify-between gap-8 text-sm"
+      >
+        <div class="flex items-center">
+          <img
+            src="./src/assets/img/logo-milas-sin-fondo.webp"
+            alt="MILAS"
+            class="w-16 mb-4 brightness-0 invert opacity-50"
+          />
+          <p class="ml-4">© 2026 MILAS Equipos Industriales y Accesorios.</p>
+        </div>
+        <div class="flex flex-col md:flex-row gap-4 md:gap-8 font-medium">
+          <a
+            href="nosotros.html"
+            class="hover:text-yellow-500 transition-colors"
+            >Nosotros</a
+          >
+          <a
+            href="productos.html"
+            class="hover:text-yellow-500 transition-colors"
+            >Productos</a
+          >
+          <a
+            href="servicios.html"
+            class="hover:text-yellow-500 transition-colors"
+            >Servicios</a
+          >
+          <a
+            href="contacto.html"
+            class="hover:text-yellow-500 transition-colors"
+            >Contacto</a
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script src="./src/main.js"></script>
+  </body>
+</html>
