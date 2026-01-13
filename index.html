@@ -160,48 +160,53 @@
       </section>
 
       <section
-        class="w-[90%] m-auto mt-10 mb-10 py-8 bg-white shadow-sm rounded-lg"
+        class="w-[90%] m-auto mt-10 mb-10 py-12 bg-white shadow-sm rounded-lg"
       >
         <div class="text-center">
           <p
-            class="text-slate-500 font-medium mb-6 uppercase text-sm tracking-widest"
+            class="text-slate-500 font-medium mb-10 uppercase text-sm tracking-widest"
           >
             Distribuidores Oficiales
           </p>
-          <div class="flex flex-wrap justify-center items-center gap-12">
+
+          <div
+            class="flex flex-wrap justify-center items-center gap-16 md:gap-32"
+          >
             <div class="flex items-center justify-center">
               <img
                 src="./src/assets/img/logo-piusi.webp"
                 alt="PIUSI"
-                class="h-12 object-contain"
+                class="h-16 md:h-20 object-contain transition-transform hover:scale-110 duration-300"
                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
               />
               <span
-                class="hidden font-bold text-3xl text-slate-400 font-poppins"
+                class="hidden font-bold text-4xl text-slate-400 font-poppins"
                 >PIUSI</span
               >
             </div>
+
             <div class="flex items-center justify-center">
               <img
                 src="./src/assets/img/logo-samson.webp"
-                alt="SAMOA"
-                class="h-12 object-contain"
+                alt="SAMSON"
+                class="h-16 md:h-20 object-contain transition-transform hover:scale-110 duration-300"
                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
               />
               <span
-                class="hidden font-bold text-3xl text-slate-400 font-poppins"
+                class="hidden font-bold text-4xl text-slate-400 font-poppins"
                 >Samson</span
               >
             </div>
+
             <div class="flex items-center justify-center">
               <img
                 src="./src/assets/img/logo-wintek.webp"
-                alt="MARCA 3"
-                class="h-12 object-contain"
+                alt="WINTEK"
+                class="h-10 md:h-16 object-contain transition-transform hover:scale-110 duration-300"
                 onerror="this.style.display='none'; this.nextElementSibling.classList.remove('hidden');"
               />
               <span
-                class="hidden font-bold text-3xl text-slate-400 font-poppins"
+                class="hidden font-bold text-4xl text-slate-400 font-poppins"
                 >Wintek</span
               >
             </div>
@@ -210,16 +215,15 @@
       </section>
 
       <section class="w-[90%] m-auto py-10">
-        <div class="flex flex-col md:flex-row justify-between items-end mb-8">
+        <div
+          class="flex flex-col md:flex-row justify-between items-center mb-8"
+        >
           <div class="px-2">
             <h2
               class="font-poppins font-bold text-2xl md:text-3xl text-slate-800"
             >
               Productos Destacados
             </h2>
-            <p class="text-slate-600 mt-2">
-              Equipamiento heavy-duty para tu taller.
-            </p>
           </div>
           <a
             href="productos.html"
@@ -345,58 +349,222 @@
         </div>
       </section>
 
-      <section class="bg-slate-800 text-white py-16 mt-10">
-        <div class="w-[90%] m-auto">
-          <div class="text-center mb-10">
-            <h2 class="font-poppins font-bold text-2xl md:text-3xl mb-4">
+      <section class="w-[90%] m-auto py-20 mt-10">
+        <div class="w-full">
+          <div class="text-center mb-12">
+            <span
+              class="text-yellow-600 font-bold tracking-widest uppercase text-sm"
+            >
+              Servicio 360°
+            </span>
+            <h2
+              class="font-poppins font-bold text-3xl md:text-4xl mt-2 text-slate-900"
+            >
               Soluciones Integrales
             </h2>
-            <p class="text-slate-400 max-w-2xl m-auto">
+            <p class="text-slate-500 mt-4 max-w-2xl m-auto text-lg">
               No solo vendemos la caja. En MILAS integramos el sistema completo
               en tu taller.
             </p>
           </div>
 
-          <div class="grid md:grid-cols-2 gap-8">
+          <div class="grid md:grid-cols-2 gap-10">
             <div
-              class="bg-slate-700 p-8 rounded-2xl border border-slate-600 hover:border-yellow-600 transition-colors"
+              class="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-500 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full"
             >
-              <h3 class="font-poppins font-bold text-2xl text-yellow-500 mb-4">
-                Instalación y Proyectos
-              </h3>
-              <ul class="space-y-2 text-slate-300 mb-6 list-disc list-inside">
-                <li>Diseño de red de tubería.</li>
-                <li>Montaje de carretes en estructuras.</li>
-                <li>Pruebas de presión y puesta en marcha.</li>
-              </ul>
-              <a
-                href="servicios.html"
-                class="text-white underline decoration-yellow-500 hover:text-yellow-500 font-medium"
-                >Ver instalaciones →</a
-              >
+              <div class="p-8 flex flex-col h-full">
+                <div
+                  class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mb-6 text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                    />
+                  </svg>
+                </div>
+
+                <h3 class="font-poppins font-bold text-2xl text-slate-800 mb-3">
+                  Instalación y Proyectos
+                </h3>
+                <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                  Diseñamos la infraestructura ideal para tu taller, optimizando
+                  el flujo de fluidos y la ergonomía de trabajo.
+                </p>
+
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Cálculo y diseño de tubería.
+                  </li>
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Montaje de carretes en estructuras.
+                  </li>
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Pruebas de presión certificadas.
+                  </li>
+                </ul>
+
+                <div class="mt-auto">
+                  <a
+                    href="servicios.html"
+                    class="block w-full py-3 text-center border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                  >
+                    Ver Galería de Proyectos
+                  </a>
+                </div>
+              </div>
             </div>
+
             <div
-              class="bg-slate-700 p-8 rounded-2xl border border-slate-600 hover:border-blue-500 transition-colors"
+              class="flex flex-col bg-white rounded-xl shadow-xl overflow-hidden border-t-4 border-yellow-500 hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 group h-full"
             >
-              <h3 class="font-poppins font-bold text-2xl text-blue-400 mb-4">
-                Mantenimiento
-              </h3>
-              <ul class="space-y-2 text-slate-300 mb-6 list-disc list-inside">
-                <li>Diagnóstico de bombas neumáticas.</li>
-                <li>Reparación con refacciones originales.</li>
-                <li>Pólizas de servicio preventivo.</li>
-              </ul>
-              <a
-                href="contacto.html"
-                class="text-white underline decoration-blue-500 hover:text-blue-400 font-medium"
-                >Solicitar servicio →</a
-              >
+              <div class="p-8 flex flex-col h-full">
+                <div
+                  class="w-16 h-16 bg-yellow-50 rounded-full flex items-center justify-center mb-6 text-yellow-600 group-hover:bg-yellow-600 group-hover:text-white transition-colors duration-300"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-8 w-8"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+                    />
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
+                  </svg>
+                </div>
+
+                <h3 class="font-poppins font-bold text-2xl text-slate-800 mb-3">
+                  Mantenimiento y Reparación
+                </h3>
+                <p class="text-slate-500 mb-6 text-sm leading-relaxed">
+                  Evita tiempos muertos en tus bahías. Diagnosticamos y
+                  reparamos tus equipos con refacciones originales.
+                </p>
+
+                <ul class="space-y-3 mb-8">
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Diagnóstico de bombas neumáticas.
+                  </li>
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Kits de reparación originales.
+                  </li>
+                  <li class="flex items-start text-slate-600 text-sm">
+                    <svg
+                      class="w-5 h-5 text-green-500 mr-2 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M5 13l4 4L19 7"
+                      ></path>
+                    </svg>
+                    Pólizas de servicio preventivo.
+                  </li>
+                </ul>
+
+                <div class="mt-10">
+                  <a
+                    href="contacto.html"
+                    class="block w-full py-3 text-center border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-colors"
+                  >
+                    Solicitar Servicio
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="py-20 bg-white">
+      <section class="py-20">
         <div
           class="w-[90%] max-w-4xl m-auto text-center bg-yellow-50 border border-yellow-100 p-8 md:p-12 rounded-3xl shadow-sm"
         >
@@ -425,13 +593,13 @@
       <div
         class="w-[90%] m-auto flex flex-col md:flex-row justify-between gap-8 text-sm"
       >
-        <div>
+        <div class="flex items-center">
           <img
             src="./src/assets/img/logo-milas-sin-fondo.webp"
             alt="MILAS"
             class="w-16 mb-4 brightness-0 invert opacity-50"
           />
-          <p>© 2026 MILAS Mantenimiento Industrial.</p>
+          <p class="ml-4">© 2026 MILAS Equipos Industriales y Accesorios.</p>
         </div>
         <div class="flex flex-col md:flex-row gap-4 md:gap-8 font-medium">
           <a
