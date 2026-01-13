@@ -1,0 +1,6 @@
+# Redirecciones para no perder tráfico (301 = Permanente)
+/qs.html             /nosotros.html        301
+/cotizaciones.html   /contacto.html        301
+
+# Redirecciones de seguridad por si alguien entra a archivos viejos
+/styles.css          /src/output.css       301
