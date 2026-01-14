@@ -1,3 +1,7 @@
+const fs = require('fs');
+const path = require('path');
+const sharp = require('sharp');
+
 const productos = [
     // --- WINTEK: GRASA ---
     {
@@ -268,7 +272,7 @@ const productos = [
         categoria: "Aceite",
         tipo: "Bombas",
         descripcion: "La referencia mundial. Bomba de paletas para trasvase de aceite con caudal constante de 25 L/min.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Bombas-Aceite-28.webp"
     },
     {
@@ -291,7 +295,16 @@ const productos = [
         destacado: false,
         imagen: "./src/assets/img/PIUSI/Bombas-Aceite-30.webp"
     },
-   
+    {
+        id: 31,
+        nombre: "Kit Cambia Aceite Vacuobox",
+        marca: "PIUSI",
+        categoria: "Aceite",
+        tipo: "Extractores",
+        descripcion: "Servicio limpio y profesional. Sistema automático de pared para la extracción de aceite usado.",
+        destacado: false,
+        imagen: "./src/assets/img/PIUSI/Extractores-Aceite-31.webp"
+    },
     {
         id: 32,
         nombre: "Pistola Easy K400 Digital",
@@ -299,7 +312,7 @@ const productos = [
         categoria: "Aceite",
         tipo: "Pistolas",
         descripcion: "El estándar de la industria. Medidor oval gears integrado para una medición precisa y fiable.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Pistolas-Aceite-32.webp"
     },
     {
@@ -319,7 +332,7 @@ const productos = [
         categoria: "Aceite",
         tipo: "Bombas",
         descripcion: "Tecnología silenciosa. Bomba neumática de pistón ideal para distancias cortas y medias.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Bombas-Aceite-34.webp"
     },
     {
@@ -351,7 +364,7 @@ const productos = [
         categoria: "Urea",
         tipo: "Bombas",
         descripcion: "Líder mundial en AdBlue. Bomba de membrana fiable, sin sellos dinámicos para evitar fugas.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Bombas-Urea-37.webp"
     },
     {
@@ -372,7 +385,7 @@ const productos = [
         categoria: "Urea",
         tipo: "Pistolas",
         descripcion: "Seguridad ante todo. Pistola plástica ligera con sistema de parada automática y break-away.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Pistolas-Urea-40.webp"
     },
     {
@@ -439,7 +452,7 @@ const productos = [
         categoria: "Urea",
         tipo: "Kits",
         descripcion: "La evolución del despacho. Unidad completa para IBC con filtro 3D, medidor K24 y pistola automática SB325.",
-        destacado:true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Kits-Urea-51.webp"
     },
     {
@@ -491,7 +504,7 @@ const productos = [
         categoria: "Sistemas de Gestión",
         tipo: "Unidades de Control",
         descripcion: "El cerebro de tu taller. Unidad central con pantalla táctil para gestionar hasta 6 válvulas GPV simultáneamente. Conexión LAN.",
-        destacado:true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Sistemas-Control-62.webp"
     },
     {
@@ -511,7 +524,7 @@ const productos = [
         categoria: "Sistemas de Gestión",
         tipo: "Válvulas",
         descripcion: "Automatización inalámbrica. Electroválvula de doble solenoide con conexión WiFi/LAN. Controla el flujo y bloquea despachos no autorizados.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Sistemas-Valvulas-64.webp"
     },
    
@@ -522,7 +535,7 @@ const productos = [
         categoria: "Sistemas de Gestión",
         tipo: "Pistolas",
         descripcion: "Información en tu mano. Pistola ergonómica con pantalla integrada que se comunica con el sistema MCO para mostrar la orden de trabajo.",
-        destacado: true,
+        destacado: false,
         imagen: "./src/assets/img/PIUSI/Sistemas-Pistolas-66.webp"
     },
    
@@ -533,179 +546,49 @@ const productos = [
 
 
 
-// =========================================================
-//  LÓGICA 1: PÁGINA DE PRODUCTOS (GRID + FILTROS COMBINADOS)
-// =========================================================
-const contenedorProductos = document.getElementById('contenedor-productos');
-const mensajeSinResultados = document.getElementById('mensaje-sin-resultados');
-const botonesFiltro = document.querySelectorAll('.btn-filtro');
+const INPUT_FOLDER = './capturas_raw'; // Donde pusiste tus png (1.png, 2.png...)
+const OUTPUT_BASE = './src/assets/img'; // Tu carpeta destino en el proyecto
 
-// ESTADO DE LOS FILTROS
-let filtrosActivos = {
-    brand: null,
-    cat: null,
-    tipo: null
-};
+async function procesarImagenes() {
+    console.log("🚀 Iniciando procesamiento de imágenes...");
 
-if (contenedorProductos) {
-    
-    // Función para renderizar
-    function renderizarGrid(lista) {
-        contenedorProductos.innerHTML = '';
-        
-        if (lista.length === 0) {
-            mensajeSinResultados.classList.remove('hidden');
-        } else {
-            mensajeSinResultados.classList.add('hidden');
+    // Crear carpeta base si no existe
+    if (!fs.existsSync(OUTPUT_BASE)) fs.mkdirSync(OUTPUT_BASE, { recursive: true });
+
+    for (const producto of productos) {
+        const id = producto.id;
+        const sourceFile = path.join(INPUT_FOLDER, `${id}.png`); // Busca 1.png, 2.png...
+
+        // Verificar si la captura existe
+        if (!fs.existsSync(sourceFile)) {
+            console.warn(`⚠️ Alerta: No encontré la imagen ${id}.png para el producto ${producto.nombre}`);
+            continue;
         }
 
-        lista.forEach(producto => {
-            // Colores por marca
-            let brandColor = 'bg-slate-200 text-slate-600';
-            if(producto.marca === 'PIUSI') brandColor = 'bg-red-100 text-red-700 border border-red-200';
-            if(producto.marca === 'SAMSON') brandColor = 'bg-blue-100 text-blue-700 border border-blue-200';
-            if(producto.marca === 'WINTEK') brandColor = 'bg-green-100 text-green-700 border border-green-200';
+        // Extraer la ruta destino del objeto producto
+        // producto.imagen es "./src/assets/img/WINTEK/nombre-largo.webp"
+        // Quitamos el "./" del inicio para que path.join funcione bien desde la raiz
+        const cleanPath = producto.imagen.replace('./', '');
+        const destFile = path.join(process.cwd(), cleanPath);
+        const destFolder = path.dirname(destFile);
 
-            const card = `
-                <article class="h-full bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
-                    <div class="h-64 bg-white flex items-center justify-center p-6 relative overflow-hidden">
-                        <span class="absolute top-4 left-4 ${brandColor} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide z-10">
-                            ${producto.marca}
-                        </span>
-                        <img src="${producto.imagen}" alt="${producto.nombre}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" onerror="this.src='./src/assets/img/logo-milas-sin-fondo.webp'; this.classList.add('opacity-20');">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex gap-2 mb-1">
-                            <span class="text-xs text-yellow-600 font-bold uppercase tracking-wider">${producto.categoria}</span>
-                            <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">• ${producto.tipo}</span>
-                        </div>
-                        <h3 class="font-poppins font-bold text-xl text-slate-800 mb-3 leading-tight">${producto.nombre}</h3>
-                        <p class="text-slate-500 text-sm mb-6 flex-grow leading-relaxed">${producto.descripcion}</p>
-                        <a href="contacto.html?producto=${encodeURIComponent(producto.nombre)}" class="mt-auto block w-full py-3 text-center bg-white border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-all duration-300">Cotizar Equipo</a>
-                    </div>
-                </article>
-            `;
-            contenedorProductos.innerHTML += card;
-        });
-    }
-
-    // Función Principal de Filtrado
-    function aplicarFiltros(filtroSeleccionado) {
-        
-        if (filtroSeleccionado === 'all') {
-            // Resetear todo
-            filtrosActivos = { brand: null, cat: null, tipo: null };
-        } else {
-            const [clave, valor] = filtroSeleccionado.split(':');
-            
-            // Lógica Toggle: Si ya estaba activo, lo quitamos. Si no, lo ponemos.
-            if (filtrosActivos[clave] === valor) {
-                filtrosActivos[clave] = null; // Desactivar
-            } else {
-                filtrosActivos[clave] = valor; // Activar
-            }
+        // Crear la carpeta de la marca (ej: WINTEK o PIUSI) si no existe
+        if (!fs.existsSync(destFolder)) {
+            fs.mkdirSync(destFolder, { recursive: true });
         }
 
-        // Actualizar UI de botones
-        actualizarBotonesUI();
+        try {
+            // AQUÍ OCURRE LA MAGIA: Conversión a WebP + Renombrado + Movimiento
+            await sharp(sourceFile)
+                .webp({ quality: 80 }) // Calidad 80% para que pesen poco
+                .toFile(destFile);
 
-        // Filtrar la lista de productos
-        const productosFiltrados = productos.filter(p => {
-            // Cumple Marca? (Si es null, pasa. Si tiene valor, debe coincidir)
-            const cumpleMarca = filtrosActivos.brand ? p.marca === filtrosActivos.brand : true;
-            // Cumple Categoria?
-            const cumpleCat = filtrosActivos.cat ? p.categoria === filtrosActivos.cat : true;
-            // Cumple Tipo?
-            const cumpleTipo = filtrosActivos.tipo ? p.tipo === filtrosActivos.tipo : true;
-
-            return cumpleMarca && cumpleCat && cumpleTipo;
-        });
-
-        renderizarGrid(productosFiltrados);
+            console.log(`✅ [ID: ${id}] Convertido y movido a -> ${cleanPath}`);
+        } catch (error) {
+            console.error(`❌ Error procesando ID ${id}:`, error);
+        }
     }
-
-    function actualizarBotonesUI() {
-        botonesFiltro.forEach(btn => {
-            const filtroBtn = btn.getAttribute('data-filter');
-            
-            // Reset visual
-            btn.classList.remove('bg-slate-800', 'text-white', 'shadow-md');
-            btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
-
-            // Si es el botón "Todos" y no hay filtros activos
-            if (filtroBtn === 'all' && !filtrosActivos.brand && !filtrosActivos.cat && !filtrosActivos.tipo) {
-                btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                btn.classList.add('bg-slate-800', 'text-white', 'shadow-md');
-                return;
-            }
-
-            // Si es un botón activo
-            if (filtroBtn !== 'all') {
-                const [clave, valor] = filtroBtn.split(':');
-                if (filtrosActivos[clave] === valor) {
-                    btn.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
-                    btn.classList.add('bg-slate-800', 'text-white', 'shadow-md');
-                }
-            }
-        });
-    }
-
-    // Inicialización
-    document.addEventListener('DOMContentLoaded', () => renderizarGrid(productos));
-    
-    botonesFiltro.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            const filtro = e.target.getAttribute('data-filter');
-            aplicarFiltros(filtro);
-        });
-    });
+    console.log("✨ ¡Proceso terminado!");
 }
 
-
-// =========================================================
-//  LÓGICA 2: PÁGINA DE INICIO (CARRUSEL DESTACADOS)
-// =========================================================
-const contenedorDestacados = document.getElementById('Principales'); // Nota: Cambié el ID al correcto que usaste en index.html
-
-if (contenedorDestacados) {
-    document.addEventListener('DOMContentLoaded', () => {
-        
-        // Filtrar solo destacados
-        const destacados = productos.filter(p => p.destacado === true);
-        
-        contenedorDestacados.innerHTML = '';
-
-        if (destacados.length === 0) {
-            contenedorDestacados.innerHTML = '<p class="text-center w-full text-slate-400">Próximamente productos destacados.</p>';
-            return;
-        }
-
-        destacados.forEach(producto => {
-            let brandColor = 'bg-slate-200 text-slate-600';
-            if(producto.marca === 'PIUSI') brandColor = 'bg-red-100 text-red-700 border border-red-200';
-            if(producto.marca === 'SAMSON') brandColor = 'bg-blue-100 text-blue-700 border border-blue-200';
-            if(producto.marca === 'WINTEK') brandColor = 'bg-green-100 text-green-700 border border-green-200';
-
-            const card = `
-                <article class="min-w-[85%] md:min-w-[350px] snap-center bg-white rounded-2xl shadow-lg border border-slate-100 overflow-hidden hover:shadow-2xl transition-all duration-300 flex flex-col group hover:-translate-y-1">
-                    <div class="h-64 bg-white flex items-center justify-center p-6 relative overflow-hidden">
-                        <span class="absolute top-4 left-4 ${brandColor} px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wide z-10">
-                            ${producto.marca}
-                        </span>
-                        <img src="${producto.imagen}" alt="${producto.nombre}" class="h-full w-full object-contain group-hover:scale-110 transition-transform duration-500" loading="lazy" onerror="this.src='./src/assets/img/logo-milas-sin-fondo.webp'; this.classList.add('opacity-20');">
-                    </div>
-                    <div class="p-6 flex flex-col flex-grow">
-                        <div class="flex gap-2 mb-1">
-                            <span class="text-xs text-yellow-600 font-bold uppercase tracking-wider">${producto.categoria}</span>
-                            <span class="text-xs text-slate-400 font-medium uppercase tracking-wider">• ${producto.tipo}</span>
-                        </div>
-                        <h3 class="font-poppins font-bold text-xl text-slate-800 mb-3 leading-tight">${producto.nombre}</h3>
-                        <p class="text-slate-500 text-sm mb-6 flex-grow leading-relaxed">${producto.descripcion}</p>
-                        <a href="contacto.html?producto=${encodeURIComponent(producto.nombre)}" class="mt-auto block w-full py-3 text-center bg-white border-2 border-slate-200 text-slate-700 font-bold rounded-lg hover:border-yellow-500 hover:text-yellow-600 transition-all duration-300">Cotizar</a>
-                    </div>
-                </article>
-            `;
-            contenedorDestacados.innerHTML += card;
-        });
-    });
-}
+procesarImagenes();
