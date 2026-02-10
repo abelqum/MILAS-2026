@@ -577,7 +577,7 @@ const productos = [
   // --- SAMSON: BOMBAS DE ACEITE ---
   {
     id: 68,
-    nombre: "Bomba PumpMaster 2 - 1:1 (Corto)",
+    nombre: "Bomba PumpMaster 2 - 1:1 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Bombas",
@@ -589,7 +589,7 @@ const productos = [
 
   {
     id: 72,
-    nombre: "Bomba PumpMaster 4 - 3:1 (Alto Flujo)",
+    nombre: "Bomba PumpMaster 4 - 3:1 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Bombas",
@@ -601,7 +601,7 @@ const productos = [
 
   {
     id: 74,
-    nombre: "Bomba PumpMaster 45 - 10:1 (Industrial)",
+    nombre: "Bomba PumpMaster 45 - 10:1 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Bombas",
@@ -614,7 +614,7 @@ const productos = [
   // --- SAMSON: BOMBAS DE GRASA ---
   {
     id: 75,
-    nombre: "Bomba PumpMaster 3 - 55:1 (Grasa)",
+    nombre: "Bomba PumpMaster 3 - 55:1 ",
     marca: "SAMSON",
     categoria: "Grasa",
     tipo: "Bombas",
@@ -626,7 +626,7 @@ const productos = [
 
   {
     id: 78,
-    nombre: "Bomba PumpMaster 60 - 80:1 (Extrema)",
+    nombre: "Bomba PumpMaster 60 - 80:1 ",
     marca: "SAMSON",
     categoria: "Grasa",
     tipo: "Bombas",
@@ -688,7 +688,7 @@ const productos = [
 
   {
     id: 89,
-    nombre: "Pistola Digital EC8 (Aceite)",
+    nombre: "Pistola Digital EC8 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Pistolas",
@@ -699,7 +699,7 @@ const productos = [
   },
   {
     id: 90,
-    nombre: "Pistola Digital EC19 (Alto Flujo)",
+    nombre: "Pistola Digital EC19 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Pistolas",
@@ -710,7 +710,7 @@ const productos = [
   },
   {
     id: 91,
-    nombre: "Pistola Mecánica MC8 (Preselectora)",
+    nombre: "Pistola Mecánica MC8 ",
     marca: "SAMSON",
     categoria: "Aceite",
     tipo: "Pistolas",
@@ -723,7 +723,7 @@ const productos = [
   // --- SAMSON: OTROS EQUIPOS ---
   {
     id: 93,
-    nombre: 'Unidad FRL 1/2" (Filtro Reg. Lub.)',
+    nombre: 'Unidad FRL 1/2"',
     marca: "SAMSON",
     categoria: "Aire",
     tipo: "Accesorios",
@@ -757,7 +757,7 @@ const productos = [
   },
   {
     id: 99,
-    nombre: "Carro Porta Tambo (Dolly)",
+    nombre: "Carro Porta Tambo",
     marca: "SAMSON",
     categoria: "Accesorios",
     tipo: "Accesorios",
@@ -768,7 +768,7 @@ const productos = [
   },
   {
     id: 100,
-    nombre: "Kit de Bomba para DEF (Palanca)",
+    nombre: "Kit de Bomba para DEF",
     marca: "SAMSON",
     categoria: "Urea",
     tipo: "Kits",
